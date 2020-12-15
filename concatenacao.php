@@ -24,7 +24,6 @@
 			echo '<br />';
 
 			echo 'Olá $nome, vi que sua cor preferida é $cor, que você tem $idade anos e que gosta de $atividade_preferida!';
-
 		?>
 	</body>
 </html>
