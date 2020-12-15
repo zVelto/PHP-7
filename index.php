@@ -10,5 +10,8 @@
 		?>
 		<br />
 		<?= 'Utilizando a tag de impressão' ?>
+
+		<br />
+		<? echo 'Utilizando a tag curta' ?>
 	</body>
 </html>
