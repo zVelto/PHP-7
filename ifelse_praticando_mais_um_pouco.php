@@ -8,12 +8,19 @@
 		<?php
 
 			//
-			$usuario_possui_cartao_loja = false;
-			$valor_compra = 725;
+			$usuario_possui_cartao_loja = true;
+			$valor_compra = 500;
 
 			$valor_frete = 50;
 			$recebeu_desconto_frete = true;
 
+			$valor_frete_aux = $usuario_possui_cartao_loja && $valor_compra >= 400 ? 0 : ($usuario_possui_cartao_loja && $valor_compra >= 300 ? 10 : ($usuario_possui_cartao_loja && $valor_compra >= 100 ? 25 : ($valor_frete)));
+
+			$recebeu_desconto_frete = $valor_frete_aux != $valor_frete ? true : false;
+
+			$valor_frete = $valor_frete_aux;
+
+			/*
 			if($usuario_possui_cartao_loja && $valor_compra >= 400) {
 				$valor_frete = 0;
 
@@ -26,31 +33,18 @@
 			} else {
 				$recebeu_desconto_frete = false;
 			}
+			*/
 
 		?>
 
 		<h1>Detalhes do pedido</h1>
 
-		<p>Possui cartão da loja?
-			<?php
-				if($usuario_possui_cartao_loja) {
-					echo 'SIM';
-				} else {
-					echo 'NÂO';
-				}
-			?>
+		<p>Possui cartão da loja? <?= $usuario_possui_cartao_loja ? 'SIM' : 'NÂO'; ?>
 		</p>
 
 		<p>Valor da compra: <?= $valor_compra ?></p>
 
-		<p>Recebeu desconto no frete?
-			<?php
-				if($recebeu_desconto_frete) {
-					echo 'SIM';
-				} else {
-					echo 'NÂO';
-				}
-			?>
+		<p>Recebeu desconto no frete? <?= $teste = $recebeu_desconto_frete ? 'SIM' : 'NÂO'; ?>
 		</p>
 
 		<p>Valor do frete: <?= $valor_frete ?></p>
